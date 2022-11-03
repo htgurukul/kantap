@@ -1,1 +1,1 @@
-# kantap is checked
+# kantap is dhoka
