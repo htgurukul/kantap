@@ -1,1 +1,1 @@
-# kantap is back online now
+# kantap is finished
