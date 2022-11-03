@@ -1,1 +1,1 @@
-# kantap is MULTI now
+# kantap is Damn Sure
