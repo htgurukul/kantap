@@ -1,1 +1,1 @@
-# kantap is finished
+# kantap is MULTI now
