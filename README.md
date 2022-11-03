@@ -1,1 +1,1 @@
-# kantap is Last Moment
+# kantap is checked
