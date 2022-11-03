@@ -1,1 +1,1 @@
-# kantap is Damn Sure
+# kantap is Last Moment
