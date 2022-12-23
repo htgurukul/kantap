@@ -8,10 +8,13 @@ stages{
                 sh ' echo branch is ${GIT_BRANCH} '
                 sh ' echo git commit is ${GIT_COMMIT} '
                 sh """
-                curl "https://api.GitHub.com/repos/htgurukul/kantap/statuses/${GIT_COMMIT}?access_token=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" \
+                curl "https://api.GitHub.com/repos/htgurukul/kantap/statuses/${GIT_COMMIT}" \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer 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"\
+  -H "X-GitHub-Api-Version: 2022-11-28" \
   -H "Content-Type: application/json" \
   -X POST \
-  -d "{"state": "success","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "https://e511-49-36-187-26.in.ngrok.io/job/multip2/${BUILD_NUMBER}/console"}" 
+  -d "{\"state\": \"failure\",\"context\": \"continuous-integration/jenkins\", \"description\": \"Jenkins\", \"target_url\": \"https://e511-49-36-187-26.in.ngrok.io/job/multip2/$BUILD_NUMBER/console\"}" 
   """
             }
         }
