@@ -6,6 +6,12 @@ pipeline {
     
 stages{
         stage('Build'){
+            when {
+                anyOf {
+                    branch "develop"
+                    branch "PR-*"
+                }
+            }
             steps {
                 sh ' cat README.md'
                 sh ' echo branch is ${GIT_BRANCH} '
@@ -22,6 +28,18 @@ stages{
             }
         }
               
+    
+ 
+        stage('PrintQA'){
+            when {
+                    branch "baseQA"
+                  }
+            steps {
+                sh ' IAM QA GUYS'
+                
+            }
+        }  
+    
         
     }
 }
