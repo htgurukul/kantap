@@ -10,7 +10,7 @@ stages{
                 sh """
                 curl "https://api.GitHub.com/repos/htgurukul/kantap/statuses/${GIT_COMMIT}" \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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"\
+  -H "Authorization: Bearer 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"\
   -H "X-GitHub-Api-Version: 2022-11-28" \
   -H "Content-Type: application/json" \
   -X POST \
