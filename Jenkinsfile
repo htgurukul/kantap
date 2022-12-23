@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+     GITT = credentials('GITOKEN')
+}
     agent any
     
 stages{
@@ -10,7 +13,7 @@ stages{
                 sh """
                 curl "https://api.GitHub.com/repos/htgurukul/kantap/statuses/${GIT_COMMIT}" \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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"\
+  -H "Authorization: Bearer ${env.GITT}"\
   -H "X-GitHub-Api-Version: 2022-11-28" \
   -H "Content-Type: application/json" \
   -X POST \
