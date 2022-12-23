@@ -1,1 +1,1 @@
-kantap is dhoka + f1.12
+kantap is clear F5
