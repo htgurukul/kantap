@@ -17,7 +17,7 @@ stages{
   -H "X-GitHub-Api-Version: 2022-11-28" \
   -H "Content-Type: application/json" \
   -X POST \
-  -d '{"state": "failure","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "https://e511-49-36-187-26.in.ngrok.io/job/${JOB_NAME}/${BUILD_NUMBER}/console"}'
+  -d '{"state": "success","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "${BUILD_URL}"}'
   """
             }
         }
