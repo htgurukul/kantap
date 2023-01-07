@@ -39,13 +39,16 @@ stages{
  
         stage('PrintQA'){
             when {
-                    branch "baseQA"
+                    anyOf {
+                        branch "baseQA"
                     branch "develop"
                     branch "PR-*"
-                  }
+                    }
+                    }
             steps {
+                script{
                 println "I am in next stage with nowd as ${nowd}"
-                
+                }
             }
         }  
     
