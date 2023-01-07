@@ -27,10 +27,17 @@ stages{
   -d '{"state": "failure","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "${BUILD_URL}"}'
   """
                 script {
+                sh ' date'
+                nowd = new Date().format("yyMMddHHmmss")
+                    nowd += "-${BUILD_ID}"
+                println nowd
                 
-                def nowd = new Date().format("yyyyMMddHHmm")
-           println nowd
+                GIThashTrunc = GIT_COMMIT.take(7)
+                    GIThashTrunc += "-${BUILD_ID}"
                 }
+                println "same step "
+                println nowd
+                println GIThashTrunc
             }
             
         }
@@ -39,12 +46,21 @@ stages{
  
         stage('PrintQA'){
             when {
-                    branch "baseQA"
+                    anyOf {
+                        branch "baseQA"
                     branch "develop"
                     branch "PR-*"
-                  }
+                    }
+                    }
             steps {
-                println "I am in next stage with nowd as ${nowd}"
+                script {
+                    println "stage 222"
+                println nowd
+                    println GIThashTrunc
+                  sh """ 
+                  echo "inside echo is nowd as $nowd  and git as $GIThashTrunc "  
+                  """
+                }
                 
             }
         }  
