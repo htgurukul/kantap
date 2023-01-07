@@ -47,7 +47,7 @@ stages{
                     }
             steps {
                 script {
-                println "I am in next stage with nowd as ${nowd}"
+                println "I am in next stage with nowd as ${env.nowd}"
                 }
             }
         }  
