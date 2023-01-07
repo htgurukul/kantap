@@ -1,1 +1,1 @@
-kantap is clear F5
+kantap is clear F5 + F44
