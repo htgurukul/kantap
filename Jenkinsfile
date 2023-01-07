@@ -31,6 +31,8 @@ stages{
                 nowd = new Date().format("yyMMddHHmmSS")
                 println nowd
                 }
+                println "same step "
+                println nowd
             }
             
         }
@@ -47,10 +49,13 @@ stages{
                     }
             steps {
                 script {
+                    println "stage 222"
                 println nowd
-                    
+                  sh """ 
+                  echo "inside echo is nowd as $nowd  "  
+                  """
                 }
-                sh " echo "inside echo is nowd as ${nowd} " "
+                
             }
         }  
     
