@@ -28,7 +28,7 @@ stages{
   """
                 script {
                 
-                def nowd = new Date().format("yyyyMMddHHmm")
+                nowd = new Date().format("yyMMddHHmmSS")
            println nowd
                 }
             }
@@ -47,7 +47,7 @@ stages{
                     }
             steps {
                 script {
-                println "I am in next stage with nowd as ${env.nowd}"
+                println "I am in next stage with nowd as ${nowd}"
                 }
             }
         }  
