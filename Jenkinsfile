@@ -10,6 +10,7 @@ stages{
                 anyOf {
                     branch "develop"
                     branch "PR-*"
+                    branch "release/rel-*"
                 }
             }
             steps {
