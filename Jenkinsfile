@@ -27,8 +27,9 @@ stages{
   -d '{"state": "failure","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "${BUILD_URL}"}'
   """
                 script {
-                
-                nowd = new Date().format("yyMMddHHmmSS")
+                sh ' date'
+                nowd = new Date().format("yyMMddHHmmS")
+                    nowd += "-${BUILD_ID}"
                 println nowd
                 }
                 println "same step "
