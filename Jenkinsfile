@@ -26,7 +26,13 @@ stages{
   -X POST \
   -d '{"state": "failure","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "${BUILD_URL}"}'
   """
+                script {
+                
+                def nowd = new Date().format("yyyyMMddHHmm")
+           println nowd
+                }
             }
+            
         }
               
     
@@ -34,9 +40,11 @@ stages{
         stage('PrintQA'){
             when {
                     branch "baseQA"
+                    branch "develop"
+                    branch "PR-*"
                   }
             steps {
-                sh ' IAM QA GUYS'
+                println "I am in next stage with nowd as ${nowd}"
                 
             }
         }  
