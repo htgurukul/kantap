@@ -26,8 +26,11 @@ stages{
   -X POST \
   -d '{"state": "failure","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "${BUILD_URL}"}'
   """
-            def nowd = new Date().format("yyyyMMddHHmm")
+                script {
+                
+                def nowd = new Date().format("yyyyMMddHHmm")
            println nowd
+                }
             }
             
         }
