@@ -29,7 +29,7 @@ stages{
                 script {
                 
                 nowd = new Date().format("yyMMddHHmmSS")
-           println nowd
+                println nowd
                 }
             }
             
@@ -47,7 +47,8 @@ stages{
                     }
             steps {
                 script {
-                println "I am in next stage with nowd as ${nowd}"
+                println nowd
+                    sh " echo "insode echo is nowd as ${nowd} "
                 }
             }
         }  
