@@ -70,7 +70,7 @@ stages{
                 sshagent(['JENKINS-KEY']) {
                   sh "git config --global user.email 'himanshu.gurukul@gmail.com' "
                   sh "git config --global user.name 'HT Jenkins' "
-                  sh("git tag -fa v`echo ${GIT_BRANCH}|awk -F"-" '{print $2}'` -m 'Release ${GIT_BRANCH}'")
+                  sh("git tag -fa v`echo ${GIT_BRANCH}|awk -F"-" '{print \$2}'` -m 'Release ${GIT_BRANCH}'")
                   sh """
                       export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                       git push -f --tags
