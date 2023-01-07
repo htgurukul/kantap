@@ -28,7 +28,7 @@ stages{
   """
                 script {
                 sh ' date'
-                nowd = new Date().format("yyMMddHHmmS")
+                nowd = new Date().format("yyMMddHHmmss")
                     nowd += "-${BUILD_ID}"
                 println nowd
                 }
