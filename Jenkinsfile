@@ -17,15 +17,7 @@ stages{
                 sh ' cat README.md'
                 sh ' echo branch is ${GIT_BRANCH} '
                 sh ' echo git commit is ${GIT_COMMIT} '
-                sh """
-                curl "https://api.GitHub.com/repos/htgurukul/kantap/statuses/${GIT_COMMIT}" \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer ${env.GITT}"\
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  -H "Content-Type: application/json" \
-  -X POST \
-  -d '{"state": "failure","context": "continuous-integration/jenkins", "description": "Jenkins", "target_url": "${BUILD_URL}"}'
-  """
+                
                 script {
                 sh ' date'
                 nowd = new Date().format("yyMMddHHmmss")
@@ -60,11 +52,33 @@ stages{
                   sh """ 
                   echo "inside echo is nowd as $nowd  and git as $GIThashTrunc "  
                   """
+                
                 }
                 
             }
         }  
     
+    
+    stage('Tag Release') {
+          when {
+                    branch "release-*"
+               }
+          steps {
+            script {
+              println("Tagging Build")
+
+                sshagent(['JENKINS-KEY']) {
+                  sh "git config --global user.email 'himanshu.gurukul@gmail.com' "
+                  sh "git config --global user.name 'HT Jenkins' "
+                  sh("git tag -fa v`echo ${GIT_BRANCH}|awk -F"-" '{print $2}'` -m 'Release ${GIT_BRANCH}'")
+                  sh """
+                      export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
+                      git push -f --tags
+                   """
+                }
+            }
+          }
+        }
         
     }
 }
