@@ -48,8 +48,9 @@ stages{
             steps {
                 script {
                 println nowd
-                    sh " echo "inside echo is nowd as ${nowd} " "
+                    
                 }
+                sh " echo "inside echo is nowd as ${nowd} " "
             }
         }  
     
