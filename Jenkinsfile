@@ -17,6 +17,9 @@ stages{
                 sh ' cat README.md'
                 sh ' echo branch is ${GIT_BRANCH} '
                 sh ' echo git commit is ${GIT_COMMIT} '
+                sh "ls -ltr"
+              sh "mkdir -p /home/jenkins/.ssh/"
+              sh "ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts"
                 
                 script {
                 sh ' date'
