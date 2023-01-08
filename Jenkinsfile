@@ -18,8 +18,11 @@ stages{
                 sh ' echo branch is ${GIT_BRANCH} '
                 sh ' echo git commit is ${GIT_COMMIT} '
                 sh "ls -ltr"
+                sh "whoami"
+                sh "ls -ltr ~/"
               sh "mkdir -p /home/jenkins/.ssh/"
               sh "ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts"
+               sh "ls -ltr ~/"
                 
                 script {
                 sh ' date'
@@ -70,7 +73,7 @@ stages{
             script {
               println("Tagging Build")
 
-                
+                sshagent(['JENKINS-KEY']) {
                   sh """
                      git config --global user.email 'himanshu.gurukul@gmail.com'
                      git config --global user.name 'htgurukul'
@@ -78,7 +81,7 @@ stages{
                      export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                       git push -f --tags
                    """
-                
+                }
             }
           }
         }
