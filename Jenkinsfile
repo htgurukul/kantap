@@ -70,7 +70,7 @@ stages{
             script {
               println("Tagging Build")
 
-                sshagent(['JENKINS-KEY']) {
+                
                   sh """
                      git config --global user.email 'himanshu.gurukul@gmail.com'
                      git config --global user.name 'htgurukul'
@@ -78,7 +78,7 @@ stages{
                      export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                       git push -f --tags
                    """
-                }
+                
             }
           }
         }
