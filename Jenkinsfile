@@ -85,6 +85,7 @@ stages{
                      git tag -fa v`echo ${GIT_BRANCH}|awk -F"-" '{print \$2}'` -m 'Release ${GIT_BRANCH}'
                      export GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no"
                       git push -f --tags
+                      echo "git url is now $GIT_URL"
                    """
                 }
             }
