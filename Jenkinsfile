@@ -23,6 +23,7 @@ stages{
               sh "mkdir -p /home/jenkins/.ssh/"
               sh "ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts"
                sh "ls -ltr ~/"
+                sh "cat .git/config "
                 
                 script {
                 sh ' date'
