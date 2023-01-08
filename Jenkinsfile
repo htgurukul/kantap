@@ -76,6 +76,10 @@ stages{
 
                 sshagent(['JENKINS-KEY']) {
                   sh """
+                  echo "git url is $GIT_URL"
+                  git remote -v
+                  git remote set-url origin git@github.com:htgurukul/kantap.git
+                  git remote -v
                      git config --global user.email 'himanshu.gurukul@gmail.com'
                      git config --global user.name 'htgurukul'
                      git tag -fa v`echo ${GIT_BRANCH}|awk -F"-" '{print \$2}'` -m 'Release ${GIT_BRANCH}'
