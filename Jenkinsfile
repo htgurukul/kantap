@@ -17,7 +17,7 @@ stages{
                 sh ' echo branch is ${GIT_BRANCH} '
                 sh ' echo git commit is ${GIT_COMMIT} '
                 sh """
-                echo in build
+                echo in build mode
   """
             }
         }
